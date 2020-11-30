@@ -10,8 +10,8 @@ function init(){
 }
 
 function login(){
-    var user = document.getElementById('input-mail').value;
-    var pass = document.getElementById('input-password').value;
+    var user = document.getElementById('username').value;
+    var pass = document.getElementById('password').value;
 
     axios({
         method: 'post',

@@ -1,6 +1,8 @@
 const express = require('express');
+
 const empleado = express.Router();
 const db = require('../config/database');
+const notFound = require('../middleware/notFound');
 
 empleado.post("/", async (req,res,next) => {
     const { nombre, apellidos, tel, email, direccion } = req.body;
@@ -35,12 +37,12 @@ empleado.put("/:id([0-9]{1,3})", async (req,res,next) =>{
 
     if(nombre && apellidos && tel && email && direccion){
         let query = `UPDATE empleados SET nombre='${nombre}',apellidos='${apellidos}',`;
-        query += `tel=${tel},email='${email}',direccion='${direccion}' WHERE id=${req.params.id};`;
+        query += `tel=${tel},email='${email}',direccion='${direccion}' WHERE id=${req.params.id}`;
 
         const rows = await db.query(query);
     
         if(rows.affectedRows == 1){
-            return res.status(201).json({code: 201, message: "Empleado modificado correctamente"});
+            return res.status(201).json({code: 201, message: "Empleado actualizado correctamente"});
         }
         return res.status(500).json({code: 500, message: "Ocurrió un error"});
     }
@@ -63,20 +65,11 @@ empleado.get('/:id([0-9]{1,3})', async (req,res,next) =>{
 
 empleado.get('/:name([A-Za-z]+)', async (req,res,next) =>{
     const name = req.params.name;
-    const emp = await db.query("SELECT * FROM empleado WHERE nombre LIKE '%"+name+"%';");
+    const emp = await db.query("SELECT * FROM empleados WHERE nombre LIKE '%"+name+"%';");
     if(emp.length > 0)  {
         return res.status(200).json({code: 200, message: emp});
     }
     return res.status(404).send({code: 404, message: "No existe ningun empleado con ese nombre."});
-});
-
-empleado.get('/:lastname([A-Za-z]+)', async (req,res,next) =>{
-    const lastname = req.params.lastname;
-    const emp = await db.query("SELECT * FROM empleado WHERE apellidos LIKE '%"+lastname+"%';");
-    if(emp.length > 0)  {
-        return res.status(200).json({code: 200, message: emp});
-    }
-    return res.status(404).send({code: 404, message: "No existe ningun empleado con ese apellido."});
 });
 
 module.exports = empleado;

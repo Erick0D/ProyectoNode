@@ -1,2 +1,4 @@
 # Ignore modules
 node_modules
+# Ignore debug.log
+debug.log

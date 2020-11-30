@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Sistema</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="./js/modificarEmp.js"></script>
 </head>
 <style type="text/css">
     body{
-        display: flex;
+        margin-top: 50px;
         align-items: center;
         text-align: center;
     }
-    #login{
+    #form{
         text-align: center;
         align-items: center;
         background-color: #fff;
@@ -58,26 +56,18 @@
         border-width: 2px;
         border-radius: 6px;
         font-size: 17px;
-        padding: 14px 16px;
+        padding: 20px 16px;
         width: 364px;
         border: 1px solid #dddfe2;
         color: #1d2129;
         height: 22px;
         line-height: 16px;
     }
-    #user{
-        margin: auto;
-        padding: 6px 0;
-    }
-    #Contra{
-        margin: auto;
-        padding: 6px 0;
-    }
     #Boton{
-        padding-top: 6px;
         text-align: center;
+        padding-top: 10px;
     }
-    .Entrar{
+    .Guardar{
         background-color: #1877f2;
         border: none;
         border-radius: 6px;
@@ -93,30 +83,22 @@
     }
 </style>
 <body>
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-6 offset-3">
-                <h1>Taller de Node.js S.A. de C.V.
-                </h1>
-                <h2>Inicia sesión
-                </h2>
-            </div>
-        </div>
-        <div id="login">
-            <form>
-                <div id="Inputs">
-                    <div id="user">
-                        <input id="username" type="text" placeholder="Usuario">
-                    </div>
-                    <div id="contra">
-                        <input id="password" type="password" placeholder="Contraseña">
-                    </div>
-                    <div id="Boton">
-                        <button class="Entrar btn-primary">Entrar</button>
-                    </div>
+    <h1>Modificar empleado</h1>  
+    <div id="form">
+        <form>  
+            <div id="Inputs">
+                <div id="user">
+                    <input id="nombre" type="text" placeholder="Nombre">
+                    <input id="apellidos" type="text" placeholder="Apellidos">
+                    <input id="tel" type="text" placeholder="Telefono">
+                    <input id="email" type="text" placeholder="Email">
+                    <input id="direccion" type="text" placeholder="Dirección">
                 </div>
-            </form>
-        </div>
+                <div id="Boton">
+                    <button class="Guardar btn-primary" onclick="guardar()">Guardar</button>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 </html>

@@ -3,20 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokédex</title>
+    <title>Sistema</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/sistema.js"></script>
 </head>
+<style type="text/css">
+    body{
+        margin-top: 30px;
+        align-items: center;
+        text-align: center;
+    }
+    table {
+        text-align: left;
+        line-height: 40px;
+        border-collapse: separate;
+        border-spacing: 0;
+        border: 2px solid  #1877f2;
+        width: 800px;
+        margin: 50px auto;
+        border-radius: .25rem;
+    }
+    thead tr:first-child {
+        background:  #1877f2;
+        color: #fff;
+        border: none;
+    }
+
+    th:first-child,
+    td:first-child {
+       padding: 0 15px 0 20px;
+    }
+
+    th {
+        font-weight: 500;
+    }
+    thead tr:last-child th {
+        border-bottom: 3px solid #ddd;
+    }
+
+    tbody tr:hover {
+        background-color: #f2f2f2;
+        cursor: default;
+    }
+
+    tbody tr:last-child td {
+        border: none;
+    }
+
+    tbody td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    td:last-child {
+        text-align: right;
+        padding-right: 10px;
+    }
+    .Agregar{
+        background-color: #1877f2;
+        border: none;
+        border-radius: 6px;
+        font-size: 20px;
+        line-height: 48px;
+        width: 364px;
+        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        justify-content: center;
+    }
+</style>
 <body>
-    <h1>Bienvenido al sistema del departamento de recursos humanos de la empresa Taller de Node.js S.A. de C.V.</h1>    
+    <h1>Bienvenido al sistema del departamento de recursos humanos de la empresa <br>Taller de Node.js S.A. de C.V.</h1>    
+
+    <input id="nombre" type="text" placeholder="Nombre">
+    <button class="Buscar btn-primary" onclick="buscar()">Buscar</button>
+
     <table class="empleados">
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Teléfono</th>
-            <th>E-mail</th>
-            <th>Dirección</th>
-          </tr>
+        <thead>
+            <tr>
+              <th colspan="6">Empleados</th>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>E-mail</th>
+                <th>Dirección</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
     </table>
+    <a class="Agregar btn-primary" href="../Sistema/agregarEmp.html">Agregar</a>
 </body>
 </html>
