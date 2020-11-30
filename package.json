@@ -1,0 +1,35 @@
+{
+  "name": "express-workshop",
+  "version": "1.0.0",
+  "description": "this is a project for the node.js workshop",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erick0D/ProyectoNode.git"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "express",
+    "nodejs",
+    "jwt",
+    "mysql"
+  ],
+  "author": "Erick Ortiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erick0D/ProyectoNode/issues"
+  },
+  "homepage": "https://github.com/Erick0D/ProyectoNode#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4"
+  }
+}
